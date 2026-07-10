@@ -500,3 +500,19 @@
 .clip-hex {
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
+
+@layer components {
+
+  #cf-status {
+    @apply opacity-0 translate-y-2 transition-all duration-300;
+  }
+
+  #cf-status:not(:empty) {
+    @apply opacity-100 translate-y-0;
+  }
+
+  #contactForm button:disabled {
+    @apply opacity-80 cursor-not-allowed;
+  }
+
+}

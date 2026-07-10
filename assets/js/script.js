@@ -325,53 +325,93 @@
 
   document.querySelectorAll("[data-carousel]").forEach(initCarousel);
 
-  /* ---------- Contact form -> sends directly via FormSubmit ---------- */
-  var contactForm = document.getElementById("contactForm");
-  var statusEl = document.getElementById("cf-status");
-  if (contactForm) {
+ /* ---------- Contact Form -> EmailJS ---------- */
+
+var contactForm = document.getElementById("contactForm");
+var statusEl = document.getElementById("cf-status");
+
+if (contactForm) {
+
     contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var name = contactForm.name.value.trim();
-      var email = contactForm.email.value.trim();
-      var subject = contactForm.subject.value.trim();
-      var message = contactForm.message.value.trim();
 
-      if (!name || !email || !subject || !message) {
-        statusEl.classList.add("text-neon-red");
-        statusEl.textContent = "Please fill in all fields.";
-        return;
-      }
+        e.preventDefault();
 
-      var to = "rizkyanditaleon7@gmail.com";
-      var submitBtn = contactForm.querySelector('button[type="submit"]');
+        var submitBtn = contactForm.querySelector('button[type="submit"]');
 
-      statusEl.classList.remove("text-neon-red");
-      statusEl.textContent = "Sending...";
-      if (submitBtn) submitBtn.disabled = true;
+        // Simpan teks tombol asli
+        var originalText = submitBtn.innerHTML;
 
-      fetch("https://formsubmit.co/ajax/" + to, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          _subject: "Portfolio contact: " + subject,
-          message: message
-        })
-      })
-        .then(function (res) { return res.json(); })
+        // Disable tombol
+        submitBtn.disabled = true;
+
+        // Loading
+        submitBtn.innerHTML = `
+            <span class="flex items-center justify-center gap-2">
+                <svg class="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10"
+                        stroke="currentColor"
+                        stroke-width="4"
+                        opacity=".25"></circle>
+
+                    <path d="M22 12A10 10 0 0 1 12 22"
+                        stroke="currentColor"
+                        stroke-width="4"
+                        stroke-linecap="round"></path>
+                </svg>
+
+                Sending...
+            </span>
+        `;
+
+        statusEl.className = "font-mono text-xs text-muted min-h-[1rem]";
+        statusEl.textContent = "";
+
+        emailjs.send(
+            "service_2372001",
+            "template_22",
+            {
+                from_name: contactForm.name.value,
+                from_email: contactForm.email.value,
+                subject: contactForm.subject.value,
+                message: contactForm.message.value
+            }
+        )
+
         .then(function () {
-          statusEl.classList.remove("text-neon-red");
-          statusEl.textContent = "Message sent! I'll get back to you soon.";
-          contactForm.reset();
+
+            // Notifikasi sukses
+            statusEl.className =
+                "font-mono text-sm text-green-400 font-semibold mt-2";
+
+            statusEl.innerHTML =
+                "✅ Message sent successfully!";
+
+            contactForm.reset();
+
         })
-        .catch(function () {
-          statusEl.classList.add("text-neon-red");
-          statusEl.textContent = "Something went wrong. Please email me directly instead.";
+
+        .catch(function (error) {
+
+            console.error(error);
+
+            // Notifikasi gagal
+            statusEl.className =
+                "font-mono text-sm text-red-500 font-semibold mt-2";
+
+            statusEl.innerHTML =
+                "❌ Failed to send message. Please try again.";
+
         })
+
         .finally(function () {
-          if (submitBtn) submitBtn.disabled = false;
+
+            submitBtn.disabled = false;
+
+            submitBtn.innerHTML = originalText;
+
         });
+
     });
-  }
+
+}
 })();

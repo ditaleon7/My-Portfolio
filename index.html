@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizky Andita Djaelani</title>
+<meta name="description" content="Portfolio of a UI Designer, Web Developer, and Administrator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/output.css">
+<link rel="icon" type="image/png" sizes="180x180" href="./assets/image/logo.png">
+</head>
+<body class="bg-void text-ink font-body antialiased overflow-x-hidden">
+
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+  <div class="orb orb-red w-[420px] h-[420px] -top-32 -left-20"></div>
+  <div class="orb orb-yellow w-[380px] h-[380px] top-1/3 -right-24"></div>
+  <div class="orb orb-red w-[320px] h-[320px] bottom-0 left-1/3"></div>
+  <div class="absolute inset-0 bg-grid"></div>
+</div>
+
+ <!--NAVBAR-->
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-white/5 glass">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#home" class="logo-glitch font-display font-bold text-xl tracking-wider text-ink">
+      R<span class="text-neon-red text-glow-red">/</span>D
+    </a>
+    <ul id="navList" class="relative hidden md:flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-muted">
+      <span id="navIndicator" class="absolute h-8 rounded-full bg-white/[0.06] border border-white/10 -z-10" style="left:0; width:0; opacity:0;"></span>
+      <li><a data-nav-link href="#home" class="nav-link block px-4 py-2 rounded-full hover:text-neon-red transition-colors">Home</a></li>
+      <li><a data-nav-link href="#about" class="nav-link block px-4 py-2 rounded-full hover:text-neon-red transition-colors">About</a></li>
+      <li><a data-nav-link href="#skills" class="nav-link block px-4 py-2 rounded-full hover:text-neon-red transition-colors">Skills</a></li>
+      <li><a data-nav-link href="#experience" class="nav-link block px-4 py-2 rounded-full hover:text-neon-red transition-colors">Experience</a></li>
+      <li><a data-nav-link href="#projects" class="nav-link block px-4 py-2 rounded-full hover:text-neon-red transition-colors">Projects</a></li>
+      <li><a data-nav-link href="#contact" class="nav-link block px-4 py-2 rounded-full hover:text-neon-red transition-colors">Contact</a></li>
+    </ul>
+    <button id="menuBtn" aria-label="Open menu" class="md:hidden w-9 h-9 grid place-items-center border border-white/10 rounded-full text-ink">
+      <span class="sr-only">Menu</span>
+      <svg id="menuIcon" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <ul id="mobileMenu" class="md:hidden hidden flex-col border-t border-white/5 font-mono text-xs uppercase tracking-widest text-muted glass">
+    <li><a data-nav-link href="#home" class="block px-6 py-3 hover:text-neon-red">Home</a></li>
+    <li><a data-nav-link href="#about" class="block px-6 py-3 hover:text-neon-red">About</a></li>
+    <li><a data-nav-link href="#skills" class="block px-6 py-3 hover:text-neon-red">Skills</a></li>
+    <li><a data-nav-link href="#experience" class="block px-6 py-3 hover:text-neon-red">Experience</a></li>
+    <li><a data-nav-link href="#projects" class="block px-6 py-3 hover:text-neon-red">Projects</a></li>
+    <li><a data-nav-link href="#contact" class="block px-6 py-3 hover:text-neon-red">Contact</a></li>
+  </ul>
+</nav>
+<div class="fixed top-16 inset-x-0 z-40 h-[2px] hazard-stripe opacity-40"></div>
+<main>
+
+<!--Home-->
+<section id="home" class="relative min-h-screen flex items-center pt-24 pb-16 px-6 overflow-hidden">
+  <div class="data-stream" style="left:12%; animation-delay:0s;"></div>
+  <div class="data-stream" style="left:38%; animation-delay:2s;"></div>
+  <div class="data-stream" style="left:64%; animation-delay:1s;"></div>
+  <div class="data-stream" style="left:85%; animation-delay:3.5s;"></div>
+  <div class="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-14 items-center">
+    <div class="intro-left order-2 md:order-1">
+      <p class="font-mono text-neon-yellow text-glow-yellow text-sm mb-4">&gt; whoami</p>
+      <h1 class="font-display font-bold text-5xl sm:text-6xl leading-[1.05] tracking-wide">
+        <span class="text-ink">RIZKY ANDITA</span><br>
+        <span class="glitch text-gradient" data-text="DJAELANI">DJAELANI</span>
+      </h1>
+      <p class="font-mono text-sm sm:text-base text-neon-yellow mt-5 h-6" id="roleTyper" aria-live="polite"></p>
+      <p class="text-muted mt-5 max-w-md leading-relaxed">
+              I design modern and intuitive interfaces, build responsive websites, 
+              and manage data efficiently to create functional and user-friendly digital solutions.
+      </p>
+      <div class="flex flex-wrap gap-4 mt-8">
+        <a href="#projects" data-nav-link class="btn-sweep neon-breathe px-7 py-3 clip-corner-sm bg-neon-red text-void font-mono text-xs uppercase tracking-widest hover:shadow-[0_0_32px_rgba(255,27,60,0.6)] hover:-translate-y-0.5 transition-all">View Projects</a>
+        <a href="./assets/CV/CV English Rizky Andita Djaelani.pdf" download class="btn-sweep px-7 py-3 clip-corner-sm border border-neon-yellow text-neon-yellow font-mono text-xs uppercase tracking-widest hover:bg-neon-yellow hover:text-void hover:-translate-y-0.5 transition-all">Download CV</a>
+      </div>
+      <div class="flex items-center gap-4 mt-10">
+        <a href="https://github.com/ditaleon7" target="_blank" rel="noopener" aria-label="GitHub" class="w-10 h-10 grid place-items-center clip-corner-sm glass text-ink hover:text-neon-red hover:border-neon-red transition-colors">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.6-.2.6-.43v-1.68c-2.5.54-3.03-1.08-3.03-1.08-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.9.06 1.38.93 1.38.93.8 1.37 2.1.97 2.62.74.08-.58.32-.97.57-1.2-2-.22-4.1-1-4.1-4.44 0-.98.35-1.78.92-2.4-.09-.23-.4-1.15.09-2.4 0 0 .75-.24 2.47.92a8.5 8.5 0 0 1 4.5 0c1.72-1.16 2.47-.92 2.47-.92.5 1.25.18 2.17.1 2.4.57.62.91 1.42.91 2.4 0 3.45-2.1 4.21-4.11 4.43.33.29.62.85.62 1.72v2.55c0 .24.15.52.6.43A9 9 0 0 0 12 3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/rizky-andita-djaelani-866aa2173/" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-10 h-10 grid place-items-center clip-corner-sm glass text-ink hover:text-neon-yellow hover:border-neon-yellow transition-colors">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7.5 10v6.5M7.5 7.5v.01M11.5 16.5V10M11.5 12.5c0-1.4 1-2.5 2.4-2.5s2.1 1 2.1 2.6v3.9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="order-1 md:order-2 flex justify-center">
+      <div id="heroPhoto" class="relative w-56 sm:w-72 aspect-[4/5] hero-photo-entrance transition-all duration-700 ease-in">
+        <div class="absolute inset-0 clip-corner bg-gradient-to-br from-neon-red/40 to-neon-yellow/40 animate-pulse-ring"></div>
+        <div class="absolute inset-[6px] clip-corner overflow-hidden border border-white/10 bg-surface">
+          <img src="./assets/image/anjir.png" alt="Photo of Rizky Andita Djaelani" class="w-full h-full object-cover grayscale-[15%] contrast-110" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div style="display:none" class="w-full h-full items-center justify-center font-mono text-xs text-muted text-center p-4">
+            Photo not found.<br>Place your image at<br><span class="text-neon-yellow">assets/image/profile.jpg</span>
+          </div>
+          <div class="scan-line"></div>
+        </div>
+        <span class="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-neon-red animate-flicker"></span>
+        <span class="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-neon-yellow animate-flicker"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--About-->
+<section id="about" class="relative py-24 px-6 edge-glow-top">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-mono text-neon-yellow text-sm mb-3 reveal">&gt; cat about.md</p>
+    <h2 class="font-display font-bold text-4xl mb-10 reveal">About <span class="text-gradient">Me</span></h2>
+    <div class="grid md:grid-cols-2 gap-12">
+      <div class="reveal">
+        <p class="text-muted leading-relaxed mb-4">
+         I am a multidisciplinary developer focused on designing intuitive user interfaces, 
+         developing responsive websites, and managing data efficiently. 
+         
+        </p>
+        <p class="text-muted leading-relaxed">
+          I believe that every great digital solution begins with understanding users' 
+          needs and the problem at hand, then choosing the right technology to build solutions 
+          that are functional, reliable, and easy to use.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="glass glass-hover clip-corner p-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-neon-red mb-4"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 14v7M14 17.5h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <h3 class="font-display font-semibold text-lg mb-1">UI Design</h3>
+          <p class="text-muted text-sm leading-relaxed">Designing clear, consistent, modern, and visually pleasing interfaces for apps and websites.</p>
+        </div>
+        <div class="glass glass-hover clip-corner p-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-neon-yellow mb-4"><path d="M8 4 3 12l5 8M16 4l5 8-5 8M13 3l-2 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3 class="font-display font-semibold text-lg mb-1">Web Development</h3>
+          <p class="text-muted text-sm leading-relaxed">Building websites from the front-end look down to the logic underneath.</p>
+        </div>
+        <div class="glass glass-hover clip-corner p-5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-neon-red mb-4"><path d="M4 5h16M4 10h16M4 15h10M4 20h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <h3 class="font-display font-semibold text-lg mb-1">Administration</h3>
+          <p class="text-muted text-sm leading-relaxed">Managing data, reports, and work documents in a tidy, organized way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Skill-->
+<section id="skills" class="relative py-24 px-6 edge-glow-top overflow-hidden">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-mono text-neon-yellow text-sm mb-3 reveal">&gt; ls skills/</p>
+    <h2 class="font-display font-bold text-4xl mb-10 reveal">Skills &amp; <span class="text-gradient">Tools</span></h2>
+  </div>
+  <div class="max-w-6xl mx-auto speed-line mb-4"></div>
+  <div class="marquee relative max-w-6xl mx-auto overflow-hidden" style="mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);">
+    <div id="skillTrack" class="marquee-track flex items-stretch gap-4 w-max"></div>
+  </div>
+  <div class="max-w-6xl mx-auto speed-line speed-line-alt mt-4"></div>
+</section>
+
+<!--EXperience-->
+<section id="experience" class="relative py-24 px-6 edge-glow-top">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-mono text-neon-yellow text-sm mb-3 reveal">&gt; cat experience.txt</p>
+    <h2 class="font-display font-bold text-4xl mb-12 reveal">Work <span class="text-gradient">Experience</span></h2>
+    <ol class="relative border-l border-white/10 ml-2">
+      <li class="mb-6 ml-8 reveal glass glass-hover clip-corner p-5">
+        <span class="absolute -left-[9px] w-4 h-4 bg-neon-red box-glow-red border border-void rounded-full"></span>
+        <p class="font-mono text-xs text-muted mb-1">Nov 2025 — May 2026</p>
+        <h3 class="font-display font-semibold text-xl">NTB Regional Office of the Directorate General of Immigration – Ministry of Manpower  
+            National Internship | Mataram, NTB</h3>
+          <h3 class="font-display font-semibold text-xl">Office Public Facilities Manager </h3>
+        <p class="text-muted text-sm mt-2 leading-relaxed max-w-2xl">Recorded 5–10 weekly maintenance activities for office facilities and electronic
+           equipment (including cameras, drones, and PCs), monitored the office website three times per week, handled and followed up on approximately 80%
+           of general facility service requests, prepared weekly facility condition and cleanliness reports, and managed the archiving of 20–40 maintenance
+           documents monthly while ensuring accurate and accessible records.</p>
+      </li>
+      <li class="mb-6 ml-8 reveal glass glass-hover clip-corner p-5">
+        <span class="absolute -left-[9px] w-4 h-4 bg-neon-yellow box-glow-yellow border border-void rounded-full"></span>
+        <p class="font-mono text-xs text-muted mb-1">Sep 2022 — Dec 2022</p>
+        <h3 class="font-display font-semibold text-xl">Gana IT – Campus Internship | Denpasar, Bali </h3>
+        <h3 class="font-display font-semibold text-xl">Back-End Programmer </h3>
+        <p class="text-muted text-sm mt-2 leading-relaxed max-w-2xl">Designed, developed, and maintained back-end web applications, 
+          collaborated with cross-functional teams to deliver customer requirements, performed system testing and bug fixing, and 
+          contributed to system architecture and implementation planning.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!--Projects-->
+<section id="projects" class="relative py-24 px-6 edge-glow-top">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-mono text-neon-yellow text-sm mb-3 reveal">&gt; ./run projects</p>
+    <h2 class="font-display font-bold text-4xl mb-12 reveal">Pro<span class="text-gradient">jects</span></h2>
+
+    <div class="mb-16 reveal">
+      <h3 class="font-display font-semibold text-lg text-neon-yellow mb-4">Web Development</h3>
+      <div class="carousel relative" data-carousel data-autoplay="4500">
+        <div class="carousel-viewport overflow-hidden clip-corner glass hud-frame">
+          <div class="carousel-track flex" data-track>
+            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
+              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Project Screenshot 1</div>
+              <div>
+                <h4 class="font-display font-semibold text-xl mb-2">Company Profile Landing Page</h4>
+                <p class="text-muted text-sm leading-relaxed">A responsive landing page built with HTML, TailwindCSS, and JavaScript.</p>
+              </div>
+            </div>
+            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
+              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Project Screenshot 2</div>
+              <div>
+                <h4 class="font-display font-semibold text-xl mb-2">Laravel-Based Information System</h4>
+                <p class="text-muted text-sm leading-relaxed">An internal data management app built with Laravel and MySQL.</p>
+              </div>
+            </div>
+            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
+              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Project Screenshot 3</div>
+              <div>
+                <h4 class="font-display font-semibold text-xl mb-2">Dashboard Vue.js</h4>
+                <p class="text-muted text-sm leading-relaxed">An interactive dashboard built with Vue.js for real-time data monitoring.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-prev absolute top-1/2 -left-4 -translate-y-1/2 w-10 h-10 grid place-items-center clip-corner-sm glass text-neon-red hover:bg-neon-red hover:text-void transition-all" aria-label="Previous" data-prev>‹</button>
+        <button class="carousel-next absolute top-1/2 -right-4 -translate-y-1/2 w-10 h-10 grid place-items-center clip-corner-sm glass text-neon-red hover:bg-neon-red hover:text-void transition-all" aria-label="Next" data-next>›</button>
+        <div class="flex justify-center gap-2 mt-4" data-dots></div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h3 class="font-display font-semibold text-lg text-neon-red mb-4">UI &amp; Canva Design</h3>
+      <div class="carousel relative" data-carousel data-autoplay="5200">
+        <div class="carousel-viewport overflow-hidden clip-corner glass hud-frame">
+          <div class="carousel-track flex" data-track>
+            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
+              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Design Preview 1</div>
+              <div>
+                <h4 class="font-display font-semibold text-xl mb-2">Instagram Feed for a Small Business</h4>
+                <p class="text-muted text-sm leading-relaxed">Feed and story content concepts designed in Canva for product promotion.</p>
+              </div>
+            </div>
+            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
+              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Design Preview 2</div>
+              <div>
+                <h4 class="font-display font-semibold text-xl mb-2">Mobile App Wireframe</h4>
+                <p class="text-muted text-sm leading-relaxed">App flow and layout planning before moving into development.</p>
+              </div>
+            </div>
+            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
+              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Design Preview 3</div>
+              <div>
+                <h4 class="font-display font-semibold text-xl mb-2">Business Card &amp; Visual Identity</h4>
+                <p class="text-muted text-sm leading-relaxed">A simple identity design for a client&rsquo;s personal branding needs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-prev absolute top-1/2 -left-4 -translate-y-1/2 w-10 h-10 grid place-items-center clip-corner-sm glass text-neon-yellow hover:bg-neon-yellow hover:text-void transition-all" aria-label="Previous" data-prev>‹</button>
+        <button class="carousel-next absolute top-1/2 -right-4 -translate-y-1/2 w-10 h-10 grid place-items-center clip-corner-sm glass text-neon-yellow hover:bg-neon-yellow hover:text-void transition-all" aria-label="Next" data-next>›</button>
+        <div class="flex justify-center gap-2 mt-4" data-dots></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Contact-->
+<section id="contact" class="relative py-24 px-6 edge-glow-top">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-mono text-neon-yellow text-sm mb-3 reveal">&gt; contact --me</p>
+    <h2 class="font-display font-bold text-4xl mb-12 reveal">Con<span class="text-gradient">tact</span></h2>
+    <div class="grid md:grid-cols-2 gap-12">
+      <div class="reveal space-y-4">
+        <a href="mailto:rizkyanditaleon7@gmail.com" class="flex items-center gap-4 glass glass-hover clip-corner p-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neon-red shrink-0"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><p class="font-mono text-xs text-muted">Email</p><p class="text-sm">rizkyanditaleon7@gmail.com</p></div>
+        </a>
+        <a href="https://www.linkedin.com/in/rizky-andita-djaelani-866aa2173/" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner p-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neon-yellow shrink-0"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7.5 10v6.5M7.5 7.5v.01M11.5 16.5V10M11.5 12.5c0-1.4 1-2.5 2.4-2.5s2.1 1 2.1 2.6v3.9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><p class="font-mono text-xs text-muted">LinkedIn</p><p class="text-sm">Rizky Andita Djaelani</p></div>
+        </a>
+        <a href="https://wa.me/085338510795" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner p-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neon-red shrink-0"><path d="M6 20 7.2 16A8 8 0 1 1 10 18.8L6 20Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 10c0 3 2.5 5.5 5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <div><p class="font-mono text-xs text-muted">Phone / WhatsApp</p><p class="text-sm">+62 853-3851-0795</p></div>
+        </a>
+        <a href="https://github.com/ditaleon7" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner p-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neon-yellow shrink-0"><path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.6-.2.6-.43v-1.68c-2.5.54-3.03-1.08-3.03-1.08-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.9.06 1.38.93 1.38.93.8 1.37 2.1.97 2.62.74.08-.58.32-.97.57-1.2-2-.22-4.1-1-4.1-4.44 0-.98.35-1.78.92-2.4-.09-.23-.4-1.15.09-2.4 0 0 .75-.24 2.47.92a8.5 8.5 0 0 1 4.5 0c1.72-1.16 2.47-.92 2.47-.92.5 1.25.18 2.17.1 2.4.57.62.91 1.42.91 2.4 0 3.45-2.1 4.21-4.11 4.43.33.29.62.85.62 1.72v2.55c0 .24.15.52.6.43A9 9 0 0 0 12 3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <div><p class="font-mono text-xs text-muted">GitHub</p><p class="text-sm">Rizky Andita Djaelani</p></div>
+        </a>
+        <a href="https://www.instagram.com/rkyandita7/" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner p-4">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neon-red shrink-0"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+          <div><p class="font-mono text-xs text-muted">Instagram</p><p class="text-sm">@rkyandita7</p></div>
+        </a>
+      </div>
+
+      <form id="contactForm" class="reveal glass clip-corner p-6 space-y-4" novalidate>
+        <div>
+          <label for="cf-name" class="block font-mono text-xs text-muted mb-1">Name</label>
+          <input id="cf-name" name="name" type="text" required placeholder="Your name" class="w-full bg-white/5 border border-white/10 clip-corner-sm px-3 py-2 text-sm focus:outline-none focus:border-neon-red transition-colors">
+        </div>
+        <div>
+          <label for="cf-email" class="block font-mono text-xs text-muted mb-1">Email</label>
+          <input id="cf-email" name="email" type="email" required placeholder="you@example.com" class="w-full bg-white/5 border border-white/10 clip-corner-sm px-3 py-2 text-sm focus:outline-none focus:border-neon-red transition-colors">
+        </div>
+        <div>
+          <label for="cf-subject" class="block font-mono text-xs text-muted mb-1">Subject</label>
+          <input id="cf-subject" name="subject" type="text" required placeholder="What this is about" class="w-full bg-white/5 border border-white/10 clip-corner-sm px-3 py-2 text-sm focus:outline-none focus:border-neon-red transition-colors">
+        </div>
+        <div>
+          <label for="cf-message" class="block font-mono text-xs text-muted mb-1">Message</label>
+          <textarea id="cf-message" name="message" rows="4" required placeholder="Write your message..." class="w-full bg-white/5 border border-white/10 clip-corner-sm px-3 py-2 text-sm focus:outline-none focus:border-neon-red transition-colors resize-none"></textarea>
+        </div>
+        <button type="submit" class="w-full py-3 bg-neon-yellow text-void font-mono text-xs uppercase tracking-widest font-medium box-glow-yellow hover:bg-neon-yellow-soft transition-colors">Send Message</button>
+        <p id="cf-status" class="font-mono text-xs text-muted min-h-[1rem]" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="border-t border-line py-8 px-6 text-center">
+  <p class="font-mono text-xs text-muted">© <span id="year"></span> Rizky Andita Djaelani. Built with HTML, TailwindCSS &amp; JavaScript.</p>
+</footer>
+
+<a href="#home" data-nav-link id="backToTop" aria-label="Back to top" class="fixed bottom-6 right-6 z-40 w-11 h-11 grid place-items-center clip-corner-sm glass border border-neon-red text-neon-red opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-neon-red hover:text-void">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M12 5l-6 6M12 5l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+<script src="./assets/js/script.js"></script>
+</body>
+</html>

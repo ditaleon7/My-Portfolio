@@ -3,6 +3,71 @@
 
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Lightning cursor trail ---------- */
+  (function () {
+    var canvas = document.getElementById("lightningCanvas");
+    if (!canvas || prefersReducedMotion || !window.matchMedia("(pointer: fine)").matches) return;
+    var ctx = canvas.getContext("2d");
+    var points = [];
+    var maxAge = 380;
+
+    function resize() {
+      canvas.width = window.innerWidth * window.devicePixelRatio;
+      canvas.height = window.innerHeight * window.devicePixelRatio;
+      ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    window.addEventListener("mousemove", function (e) {
+      points.push({ x: e.clientX, y: e.clientY, t: performance.now() });
+      if (points.length > 24) points.shift();
+    });
+
+    function jitteredPath(a, b) {
+      var segments = 4;
+      var path = [a];
+      for (var i = 1; i < segments; i++) {
+        var t = i / segments;
+        var mx = a.x + (b.x - a.x) * t;
+        var my = a.y + (b.y - a.y) * t;
+        var offset = (Math.random() - 0.5) * 10;
+        var dx = b.x - a.x, dy = b.y - a.y;
+        var len = Math.sqrt(dx * dx + dy * dy) || 1;
+        path.push({ x: mx + (-dy / len) * offset, y: my + (dx / len) * offset });
+      }
+      path.push(b);
+      return path;
+    }
+
+    function draw() {
+      var now = performance.now();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      points = points.filter(function (p) { return now - p.t < maxAge; });
+
+      for (var i = 1; i < points.length; i++) {
+        var a = points[i - 1];
+        var b = points[i];
+        var age = now - b.t;
+        var alpha = Math.max(0, 1 - age / maxAge);
+        if (alpha <= 0) continue;
+
+        var path = jitteredPath(a, b);
+        ctx.beginPath();
+        ctx.moveTo(path[0].x, path[0].y);
+        for (var j = 1; j < path.length; j++) ctx.lineTo(path[j].x, path[j].y);
+
+        ctx.strokeStyle = "rgba(244, 230, 0," + (alpha * 0.9).toFixed(2) + ")";
+        ctx.lineWidth = 1.6;
+        ctx.shadowColor = "rgba(255, 27, 60, 0.9)";
+        ctx.shadowBlur = 12;
+        ctx.stroke();
+      }
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  })();
+
   /* ---------- Year ---------- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -388,6 +453,12 @@ if (contactForm) {
 
             contactForm.reset();
 
+            clearTimeout(window.__cfStatusTimer);
+            window.__cfStatusTimer = setTimeout(function () {
+                statusEl.className = "font-mono text-xs text-muted min-h-[1rem]";
+                statusEl.innerHTML = "";
+            }, 3000);
+
         })
 
         .catch(function (error) {
@@ -400,6 +471,12 @@ if (contactForm) {
 
             statusEl.innerHTML =
                 "❌ Failed to send message. Please try again.";
+
+            clearTimeout(window.__cfStatusTimer);
+            window.__cfStatusTimer = setTimeout(function () {
+                statusEl.className = "font-mono text-xs text-muted min-h-[1rem]";
+                statusEl.innerHTML = "";
+            }, 3000);
 
         })
 

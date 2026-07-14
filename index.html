@@ -13,6 +13,8 @@
 </head>
 <body class="bg-void text-ink font-body antialiased overflow-x-hidden">
 
+<canvas id="lightningCanvas"></canvas>
+
 <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
   <div class="orb orb-red w-[420px] h-[420px] -top-32 -left-20"></div>
   <div class="orb orb-yellow w-[380px] h-[380px] top-1/3 -right-24"></div>
@@ -119,17 +121,17 @@
         </p>
       </div>
       <div class="grid sm:grid-cols-3 gap-4">
-        <div class="glass glass-hover clip-corner p-5">
+        <div class="glass glass-hover clip-corner hud-frame p-5">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-neon-red mb-4"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M17.5 14v7M14 17.5h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           <h3 class="font-display font-semibold text-lg mb-1">UI Design</h3>
           <p class="text-muted text-sm leading-relaxed">Designing clear, consistent, modern, and visually pleasing interfaces for apps and websites.</p>
         </div>
-        <div class="glass glass-hover clip-corner p-5">
+        <div class="glass glass-hover clip-corner hud-frame p-5">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-neon-yellow mb-4"><path d="M8 4 3 12l5 8M16 4l5 8-5 8M13 3l-2 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <h3 class="font-display font-semibold text-lg mb-1">Web Development</h3>
           <p class="text-muted text-sm leading-relaxed">Building websites from the front-end look down to the logic underneath.</p>
         </div>
-        <div class="glass glass-hover clip-corner p-5">
+        <div class="glass glass-hover clip-corner hud-frame p-5">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="text-neon-red mb-4"><path d="M4 5h16M4 10h16M4 15h10M4 20h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           <h3 class="font-display font-semibold text-lg mb-1">Administration</h3>
           <p class="text-muted text-sm leading-relaxed">Managing data, reports, and work documents in a tidy, organized way.</p>
@@ -158,6 +160,7 @@
     <p class="font-mono text-neon-yellow text-sm mb-3 reveal">&gt; cat experience.txt</p>
     <h2 class="font-display font-bold text-4xl mb-12 reveal">Work <span class="text-gradient">Experience</span></h2>
     <ol class="relative border-l border-white/10 ml-2">
+      <span class="timeline-pulse"></span>
       <li class="mb-6 ml-8 reveal glass glass-hover clip-corner p-5">
         <span class="absolute -left-[9px] w-4 h-4 bg-neon-red box-glow-red border border-void rounded-full"></span>
         <p class="font-mono text-xs text-muted mb-1">Nov 2025 — May 2026</p>
@@ -265,23 +268,23 @@
     <h2 class="font-display font-bold text-4xl mb-12 reveal">Con<span class="text-gradient">tact</span></h2>
     <div class="grid md:grid-cols-2 gap-12">
       <div class="reveal space-y-4">
-        <a href="mailto:rizkyanditaleon7@gmail.com" class="flex items-center gap-4 glass glass-hover clip-corner p-4">
+        <a href="mailto:rizkyanditaleon7@gmail.com" class="flex items-center gap-4 glass glass-hover clip-corner hud-frame p-4">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neon-red shrink-0"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <div><p class="font-mono text-xs text-muted">Email</p><p class="text-sm">rizkyanditaleon7@gmail.com</p></div>
         </a>
-        <a href="https://www.linkedin.com/in/rizky-andita-djaelani-866aa2173/" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner p-4">
+        <a href="https://www.linkedin.com/in/rizky-andita-djaelani-866aa2173/" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner hud-frame p-4">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neon-yellow shrink-0"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7.5 10v6.5M7.5 7.5v.01M11.5 16.5V10M11.5 12.5c0-1.4 1-2.5 2.4-2.5s2.1 1 2.1 2.6v3.9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <div><p class="font-mono text-xs text-muted">LinkedIn</p><p class="text-sm">Rizky Andita Djaelani</p></div>
         </a>
-        <a href="https://wa.me/085338510795" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner p-4">
+        <a href="https://wa.me/085338510795" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner hud-frame p-4">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neon-red shrink-0"><path d="M6 20 7.2 16A8 8 0 1 1 10 18.8L6 20Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 10c0 3 2.5 5.5 5.5 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           <div><p class="font-mono text-xs text-muted">Phone / WhatsApp</p><p class="text-sm">+62 853-3851-0795</p></div>
         </a>
-        <a href="https://github.com/ditaleon7" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner p-4">
+        <a href="https://github.com/ditaleon7" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner hud-frame p-4">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neon-yellow shrink-0"><path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.6-.2.6-.43v-1.68c-2.5.54-3.03-1.08-3.03-1.08-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.9.06 1.38.93 1.38.93.8 1.37 2.1.97 2.62.74.08-.58.32-.97.57-1.2-2-.22-4.1-1-4.1-4.44 0-.98.35-1.78.92-2.4-.09-.23-.4-1.15.09-2.4 0 0 .75-.24 2.47.92a8.5 8.5 0 0 1 4.5 0c1.72-1.16 2.47-.92 2.47-.92.5 1.25.18 2.17.1 2.4.57.62.91 1.42.91 2.4 0 3.45-2.1 4.21-4.11 4.43.33.29.62.85.62 1.72v2.55c0 .24.15.52.6.43A9 9 0 0 0 12 3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
           <div><p class="font-mono text-xs text-muted">GitHub</p><p class="text-sm">Rizky Andita Djaelani</p></div>
         </a>
-        <a href="https://www.instagram.com/rkyandita7/" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner p-4">
+        <a href="https://www.instagram.com/rkyandita7/" target="_blank" rel="noopener" class="flex items-center gap-4 glass glass-hover clip-corner hud-frame p-4">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-neon-red shrink-0"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
           <div><p class="font-mono text-xs text-muted">Instagram</p><p class="text-sm">@rkyandita7</p></div>
         </a>

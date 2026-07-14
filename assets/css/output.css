@@ -1523,6 +1523,49 @@
 .clip-hex {
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
+@keyframes timeline-pulse-move {
+  0% {
+    top: -8%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+.timeline-pulse {
+  position: absolute;
+  left: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--color-neon-red);
+  box-shadow: 0 0 10px rgba(255, 27, 60, 0.9), 0 0 20px rgba(244, 230, 0, 0.5);
+  animation: timeline-pulse-move 3.6s ease-in-out infinite;
+}
+#lightningCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 60;
+  mix-blend-mode: screen;
+}
+@media (prefers-reduced-motion: reduce) {
+  .timeline-pulse {
+    display: none !important;
+  }
+  #lightningCanvas {
+    display: none !important;
+  }
+}
 @layer components {
   #cf-status {
     --tw-translate-y: calc(var(--spacing) * 2);

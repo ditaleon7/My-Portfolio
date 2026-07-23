@@ -285,110 +285,28 @@
     }
   }
 
-  /* ---------- Carousels ---------- */
-  function initCarousel(root) {
-    var track = root.querySelector("[data-track]");
-    var slides = Array.prototype.slice.call(track.children);
-    var prevBtn = root.querySelector("[data-prev]");
-    var nextBtn = root.querySelector("[data-next]");
-    var dotsWrap = root.querySelector("[data-dots]");
-    var autoplayDelay = parseInt(root.getAttribute("data-autoplay"), 10) || 5000;
-    var index = 0;
-    var timer = null;
-    var isDragging = false;
-    var dragStartX = 0;
-    var dragCurrentX = 0;
-    var trackWidth = 0;
-
-    slides.forEach(function (_, i) {
-      var dot = document.createElement("button");
-      dot.className = "w-2 h-2 rounded-full bg-line";
-      dot.setAttribute("aria-label", "Slide " + (i + 1));
-      dot.addEventListener("click", function () { goTo(i); resetAutoplay(); });
-      dotsWrap.appendChild(dot);
+  /* ---------- Projects depth carousel (Swiper, no 3D) ---------- */
+  function initProjectCoverflow(selector, delay) {
+    if (typeof Swiper === "undefined" || !document.querySelector(selector)) return;
+    new Swiper(selector, {
+      effect: "slide",
+      grabCursor: true,
+      centeredSlides: true,
+      loop: false,
+      rewind: true,
+      slidesPerView: "auto",
+      spaceBetween: 24,
+      autoplay: prefersReducedMotion ? false : { delay: delay, disableOnInteraction: false },
+      pagination: { el: selector + " .swiper-pagination", clickable: true },
+      navigation: {
+        nextEl: selector + " .swiper-button-next",
+        prevEl: selector + " .swiper-button-prev"
+      },
+      keyboard: { enabled: true }
     });
-
-    function updateDots() {
-      Array.prototype.forEach.call(dotsWrap.children, function (dot, i) {
-        dot.classList.toggle("bg-neon-red", i === index);
-        dot.classList.toggle("bg-line", i !== index);
-      });
-    }
-
-    function measure() {
-      trackWidth = root.querySelector(".carousel-viewport").getBoundingClientRect().width;
-    }
-
-    function render(withTransition) {
-      track.style.transition = withTransition === false ? "none" : "transform 0.5s ease";
-      track.style.transform = "translateX(" + (-index * trackWidth) + "px)";
-    }
-
-    function goTo(i) {
-      index = (i + slides.length) % slides.length;
-      render(true);
-      updateDots();
-    }
-
-    function next() { goTo(index + 1); }
-    function prev() { goTo(index - 1); }
-
-    function startAutoplay() {
-      if (prefersReducedMotion) return;
-      stopAutoplay();
-      timer = setInterval(next, autoplayDelay);
-    }
-    function stopAutoplay() {
-      if (timer) { clearInterval(timer); timer = null; }
-    }
-    function resetAutoplay() { stopAutoplay(); startAutoplay(); }
-
-    nextBtn.addEventListener("click", function () { next(); resetAutoplay(); });
-    prevBtn.addEventListener("click", function () { prev(); resetAutoplay(); });
-
-    root.addEventListener("mouseenter", stopAutoplay);
-    root.addEventListener("mouseleave", startAutoplay);
-
-    track.addEventListener("pointerdown", function (e) {
-      isDragging = true;
-      dragStartX = e.clientX;
-      dragCurrentX = 0;
-      stopAutoplay();
-      track.setPointerCapture(e.pointerId);
-      track.style.cursor = "grabbing";
-    });
-    track.addEventListener("pointermove", function (e) {
-      if (!isDragging) return;
-      dragCurrentX = e.clientX - dragStartX;
-      track.style.transition = "none";
-      track.style.transform = "translateX(" + (-index * trackWidth + dragCurrentX) + "px)";
-    });
-    function endDrag() {
-      if (!isDragging) return;
-      isDragging = false;
-      track.style.cursor = "";
-      if (Math.abs(dragCurrentX) > trackWidth * 0.15) {
-        dragCurrentX < 0 ? next() : prev();
-      } else {
-        render(true);
-      }
-      resetAutoplay();
-    }
-    track.addEventListener("pointerup", endDrag);
-    track.addEventListener("pointerleave", function () { if (isDragging) endDrag(); });
-
-    window.addEventListener("resize", function () {
-      measure();
-      render(false);
-    });
-
-    measure();
-    render(false);
-    updateDots();
-    startAutoplay();
   }
-
-  document.querySelectorAll("[data-carousel]").forEach(initCarousel);
+  initProjectCoverflow(".project-swiper-red", 4500);
+  initProjectCoverflow(".project-swiper-yellow", 5200);
 
  /* ---------- Contact Form -> EmailJS ---------- */
 

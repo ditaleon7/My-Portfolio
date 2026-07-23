@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/css/output.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <link rel="icon" type="image/png" sizes="180x180" href="./assets/image/logo.png">
 </head>
 <body class="bg-void text-ink font-body antialiased overflow-x-hidden">
@@ -186,76 +187,100 @@
 </section>
 
 <!--Projects-->
-<section id="projects" class="relative py-24 px-6 edge-glow-top">
+<section id="projects" class="relative py-24 px-6 edge-glow-top overflow-hidden">
   <div class="max-w-6xl mx-auto">
     <p class="font-mono text-neon-yellow text-sm mb-3 reveal">&gt; ./run projects</p>
     <h2 class="font-display font-bold text-4xl mb-12 reveal">Pro<span class="text-gradient">jects</span></h2>
 
-    <div class="mb-16 reveal">
+    <div class="mb-12 reveal">
       <h3 class="font-display font-semibold text-lg text-neon-yellow mb-4">Web Development</h3>
-      <div class="carousel relative" data-carousel data-autoplay="4500">
-        <div class="carousel-viewport overflow-hidden clip-corner glass hud-frame">
-          <div class="carousel-track flex" data-track>
-            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
-              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Project Screenshot 1</div>
-              <div>
-                <h4 class="font-display font-semibold text-xl mb-2">Company Profile Landing Page</h4>
-                <p class="text-muted text-sm leading-relaxed">A responsive landing page built with HTML, TailwindCSS, and JavaScript.</p>
-              </div>
+      <div class="clip-corner glass hud-frame p-5 md:p-7">
+        <div class="swiper project-swiper project-swiper-red">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="https://portfoliosindisusan.vercel.app/" target="_blank" rel="noopener" class="project-slide-inner">
+                <img src="./assets/image/susan.jpg" alt="Company Profile Landing Page" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="project-overlay">
+                  <p class="font-mono text-[10px] text-neon-yellow uppercase tracking-wide">Project Name</p>
+                  <p class="font-display font-semibold text-base text-ink mb-2 leading-snug">Portfolio</p>
+                  <p class="font-mono text-[10px] text-neon-red uppercase tracking-wide">Build With</p>
+                  <p class="text-muted text-sm">HTML, CSS, JavaScript</p>
+                </div>
+              </a>
             </div>
-            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
-              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Project Screenshot 2</div>
-              <div>
-                <h4 class="font-display font-semibold text-xl mb-2">Laravel-Based Information System</h4>
-                <p class="text-muted text-sm leading-relaxed">An internal data management app built with Laravel and MySQL.</p>
-              </div>
+            <div class="swiper-slide">
+              <a href="https://your-project-link.com" target="_blank" rel="noopener" class="project-slide-inner">
+                <img src="./assets/image/projects/laravel-info-system.jpg" alt="Laravel-Based Information System" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="project-overlay">
+                  <p class="font-mono text-[10px] text-neon-yellow uppercase tracking-wide">Project Name</p>
+                  <p class="font-display font-semibold text-base text-ink mb-2 leading-snug"></p>
+                  <p class="font-mono text-[10px] text-neon-red uppercase tracking-wide">Build With</p>
+                  <p class="text-muted text-sm"></p>
+                </div>
+              </a>
             </div>
-            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
-              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Project Screenshot 3</div>
-              <div>
-                <h4 class="font-display font-semibold text-xl mb-2">Dashboard Vue.js</h4>
-                <p class="text-muted text-sm leading-relaxed">An interactive dashboard built with Vue.js for real-time data monitoring.</p>
-              </div>
+            <div class="swiper-slide">
+              <a href="https://your-project-link.com" target="_blank" rel="noopener" class="project-slide-inner">
+                <img src="./assets/image/projects/dashboard-vuejs.jpg" alt="Dashboard Vue.js" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="project-overlay">
+                  <p class="font-mono text-[10px] text-neon-yellow uppercase tracking-wide">Project Name</p>
+                  <p class="font-display font-semibold text-base text-ink mb-2 leading-snug"></p>
+                  <p class="font-mono text-[10px] text-neon-red uppercase tracking-wide">Build With</p>
+                  <p class="text-muted text-sm"></p>
+                </div>
+              </a>
             </div>
           </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev proj-nav-btn proj-nav-red" aria-label="Previous project"></div>
+          <div class="swiper-button-next proj-nav-btn proj-nav-red" aria-label="Next project"></div>
         </div>
-        <button class="carousel-prev absolute top-1/2 -left-4 -translate-y-1/2 w-10 h-10 grid place-items-center clip-corner-sm glass text-neon-red hover:bg-neon-red hover:text-void transition-all" aria-label="Previous" data-prev>‹</button>
-        <button class="carousel-next absolute top-1/2 -right-4 -translate-y-1/2 w-10 h-10 grid place-items-center clip-corner-sm glass text-neon-red hover:bg-neon-red hover:text-void transition-all" aria-label="Next" data-next>›</button>
-        <div class="flex justify-center gap-2 mt-4" data-dots></div>
       </div>
     </div>
 
     <div class="reveal">
       <h3 class="font-display font-semibold text-lg text-neon-red mb-4">UI &amp; Canva Design</h3>
-      <div class="carousel relative" data-carousel data-autoplay="5200">
-        <div class="carousel-viewport overflow-hidden clip-corner glass hud-frame">
-          <div class="carousel-track flex" data-track>
-            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
-              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Design Preview 1</div>
-              <div>
-                <h4 class="font-display font-semibold text-xl mb-2">Instagram Feed for a Small Business</h4>
-                <p class="text-muted text-sm leading-relaxed">Feed and story content concepts designed in Canva for product promotion.</p>
+      <div class="clip-corner glass hud-frame p-5 md:p-7">
+        <div class="swiper project-swiper project-swiper-yellow">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="project-slide-inner">
+                <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Design Preview 1</div>
+                <div class="project-overlay">
+                  <p class="font-mono text-[10px] text-neon-yellow uppercase tracking-wide">Project Name</p>
+                  <p class="font-display font-semibold text-base text-ink mb-2 leading-snug">Instagram Feed for a Small Business</p>
+                  <p class="font-mono text-[10px] text-neon-red uppercase tracking-wide">Build With</p>
+                  <p class="text-muted text-sm">Canva</p>
+                </div>
               </div>
             </div>
-            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
-              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Design Preview 2</div>
-              <div>
-                <h4 class="font-display font-semibold text-xl mb-2">Mobile App Wireframe</h4>
-                <p class="text-muted text-sm leading-relaxed">App flow and layout planning before moving into development.</p>
+            <div class="swiper-slide">
+              <div class="project-slide-inner">
+                <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Design Preview 2</div>
+                <div class="project-overlay">
+                  <p class="font-mono text-[10px] text-neon-yellow uppercase tracking-wide">Project Name</p>
+                  <p class="font-display font-semibold text-base text-ink mb-2 leading-snug">Mobile App Wireframe</p>
+                  <p class="font-mono text-[10px] text-neon-red uppercase tracking-wide">Build With</p>
+                  <p class="text-muted text-sm">Canva</p>
+                </div>
               </div>
             </div>
-            <div class="carousel-slide shrink-0 w-full p-8 grid sm:grid-cols-[1fr_1.2fr] gap-6 items-center">
-              <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Design Preview 3</div>
-              <div>
-                <h4 class="font-display font-semibold text-xl mb-2">Business Card &amp; Visual Identity</h4>
-                <p class="text-muted text-sm leading-relaxed">A simple identity design for a client&rsquo;s personal branding needs.</p>
+            <div class="swiper-slide">
+              <div class="project-slide-inner">
+                <div class="aspect-video bg-void border border-line grid place-items-center text-muted font-mono text-xs">Design Preview 3</div>
+                <div class="project-overlay">
+                  <p class="font-mono text-[10px] text-neon-yellow uppercase tracking-wide">Project Name</p>
+                  <p class="font-display font-semibold text-base text-ink mb-2 leading-snug">Business Card &amp; Visual Identity</p>
+                  <p class="font-mono text-[10px] text-neon-red uppercase tracking-wide">Build With</p>
+                  <p class="text-muted text-sm">Canva</p>
+                </div>
               </div>
             </div>
           </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev proj-nav-btn proj-nav-yellow" aria-label="Previous design"></div>
+          <div class="swiper-button-next proj-nav-btn proj-nav-yellow" aria-label="Next design"></div>
         </div>
-        <button class="carousel-prev absolute top-1/2 -left-4 -translate-y-1/2 w-10 h-10 grid place-items-center clip-corner-sm glass text-neon-yellow hover:bg-neon-yellow hover:text-void transition-all" aria-label="Previous" data-prev>‹</button>
-        <button class="carousel-next absolute top-1/2 -right-4 -translate-y-1/2 w-10 h-10 grid place-items-center clip-corner-sm glass text-neon-yellow hover:bg-neon-yellow hover:text-void transition-all" aria-label="Next" data-next>›</button>
-        <div class="flex justify-center gap-2 mt-4" data-dots></div>
       </div>
     </div>
   </div>
@@ -335,6 +360,7 @@ emailjs.init({
     publicKey: "FLgq2CZy9OG5gorTr"
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>

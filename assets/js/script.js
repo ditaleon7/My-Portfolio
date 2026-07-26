@@ -3,6 +3,37 @@
 
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Logo avoids the cursor ---------- */
+  (function () {
+    var wrap = document.getElementById("navLogoWrap");
+    var img = document.getElementById("navLogo");
+    if (!wrap || !img || prefersReducedMotion || !window.matchMedia("(pointer: fine)").matches) return;
+
+    var radius = 70;
+    var maxPush = 16;
+
+    document.addEventListener("mousemove", function (e) {
+      var rect = wrap.getBoundingClientRect();
+      var cx = rect.left + rect.width / 2;
+      var cy = rect.top + rect.height / 2;
+      var dx = cx - e.clientX;
+      var dy = cy - e.clientY;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < radius) {
+        var strength = (1 - dist / radius) * maxPush;
+        var angle = Math.atan2(dy, dx);
+        var pushX = Math.cos(angle) * strength;
+        var pushY = Math.sin(angle) * strength;
+        img.style.transform = "translate(" + pushX.toFixed(1) + "px, " + pushY.toFixed(1) + "px)";
+        wrap.classList.add("is-active");
+      } else {
+        img.style.transform = "";
+        wrap.classList.remove("is-active");
+      }
+    });
+  })();
+
   /* ---------- Lightning cursor trail ---------- */
   (function () {
     var canvas = document.getElementById("lightningCanvas");
@@ -256,6 +287,8 @@
     { name: "Vite", icon: "vite.svg" },
     { name: "Google Gemini", icon: "google-gemini.svg", scale: 1.6 },
     { name: "Adobe XD", icon: "logos--adobe-xd.svg" },
+    { name: "Laragon", icon: "Laragon.svg" },
+    { name: "Xampp", icon: "Xampp.svg" },
     { name: "Visio", icon: "visio.svg", scale: 1.6 },
     { name: "OpenAI", icon: "openai-icon.svg", tint: "#ffffff" }
   ];

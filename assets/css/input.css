@@ -333,11 +333,21 @@
   animation: data-stream 6s linear infinite;
 }
 
-.logo-glitch {
-  transition: text-shadow 0.15s ease;
+.nav-logo-wrap {
+  display: inline-flex;
+  position: relative;
 }
-.logo-glitch:hover {
-  animation: glitch-1 0.4s steps(1) infinite;
+.nav-logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+  filter: drop-shadow(0 0 0 rgba(255, 27, 60, 0));
+  will-change: transform;
+}
+.nav-logo-wrap:hover .nav-logo-img,
+.nav-logo-wrap.is-active .nav-logo-img {
+  filter: drop-shadow(0 0 8px rgba(255, 27, 60, 0.85)) drop-shadow(0 0 16px rgba(244, 230, 0, 0.6));
 }
 
 @keyframes intro-slide-left {
@@ -401,6 +411,10 @@
   }
   .logo-glitch:hover {
     animation: none !important;
+  }
+  .nav-logo-img {
+    transition: none !important;
+    transform: none !important;
   }
   .animate-float,
   .animate-pulse-ring,

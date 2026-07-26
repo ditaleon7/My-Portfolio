@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/css/output.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link rel="icon" type="image/png" sizes="180x180" href="./assets/image/logo.png">
+<link rel="icon" type="image/png" sizes="180x180" href="./assets/image/logo r.png">
 </head>
 <body class="bg-void text-ink font-body antialiased overflow-x-hidden">
 
@@ -26,8 +26,10 @@
  <!--NAVBAR-->
 <nav id="navbar" class="fixed top-0 inset-x-0 z-50 border-b border-white/5 glass">
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="#home" class="logo-glitch font-display font-bold text-xl tracking-wider text-ink">
-      R<span class="text-neon-red text-glow-red">/</span>D
+    <a href="#home" id="navLogoLink" class="flex items-center">
+      <span id="navLogoWrap" class="nav-logo-wrap">
+        <img src="./assets/image/logo r.png" alt="RD Logo" id="navLogo" class="nav-logo-img">
+      </span>
     </a>
     <ul id="navList" class="relative hidden md:flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-muted">
       <span id="navIndicator" class="absolute h-8 rounded-full bg-white/[0.06] border border-white/10 -z-10" style="left:0; width:0; opacity:0;"></span>
@@ -75,7 +77,7 @@
       </p>
       <div class="flex flex-wrap gap-4 mt-8">
         <a href="#projects" data-nav-link class="btn-sweep neon-breathe px-7 py-3 clip-corner-sm bg-neon-red text-void font-mono text-xs uppercase tracking-widest hover:shadow-[0_0_32px_rgba(255,27,60,0.6)] hover:-translate-y-0.5 transition-all">View Projects</a>
-        <a href="./assets/CV/CV English Rizky Andita Djaelani.pdf" download class="btn-sweep px-7 py-3 clip-corner-sm border border-neon-yellow text-neon-yellow font-mono text-xs uppercase tracking-widest hover:bg-neon-yellow hover:text-void hover:-translate-y-0.5 transition-all">Download CV</a>
+        <a href="./assets/CV/CV_Rizky Andita Djaelani.pdf" download class="btn-sweep px-7 py-3 clip-corner-sm border border-neon-yellow text-neon-yellow font-mono text-xs uppercase tracking-widest hover:bg-neon-yellow hover:text-void hover:-translate-y-0.5 transition-all">Download CV</a>
       </div>
       <div class="flex items-center gap-4 mt-10">
         <a href="https://github.com/ditaleon7" target="_blank" rel="noopener" aria-label="GitHub" class="w-10 h-10 grid place-items-center clip-corner-sm glass text-ink hover:text-neon-red hover:border-neon-red transition-colors">

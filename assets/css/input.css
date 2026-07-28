@@ -350,6 +350,17 @@
   filter: drop-shadow(0 0 8px rgba(255, 27, 60, 0.85)) drop-shadow(0 0 16px rgba(244, 230, 0, 0.6));
 }
 
+.hero-tilt-perspective {
+  perspective: 900px;
+}
+.hero-tilt-frame {
+  transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+  will-change: transform;
+}
+.hero-tilt-frame.is-hovering {
+  box-shadow: 0 0 24px rgba(255, 27, 60, 0.55), 0 0 44px rgba(244, 230, 0, 0.35);
+}
+
 @keyframes intro-slide-left {
   0% { opacity: 0; transform: translateX(-60px); }
   100% { opacity: 1; transform: translateX(0); }
@@ -413,6 +424,10 @@
     animation: none !important;
   }
   .nav-logo-img {
+    transition: none !important;
+    transform: none !important;
+  }
+  .hero-tilt-frame {
     transition: none !important;
     transform: none !important;
   }

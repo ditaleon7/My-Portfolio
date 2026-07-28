@@ -3,34 +3,28 @@
 
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Logo avoids the cursor ---------- */
+  /* ---------- Logo neon glow on hover (pure CSS :hover handles this) ---------- */
+
+  /* ---------- Hero photo tilt: side under cursor recedes, opposite side advances ---------- */
   (function () {
-    var wrap = document.getElementById("navLogoWrap");
-    var img = document.getElementById("navLogo");
-    if (!wrap || !img || prefersReducedMotion || !window.matchMedia("(pointer: fine)").matches) return;
+    var frame = document.getElementById("heroTiltGroup");
+    if (!frame || prefersReducedMotion || !window.matchMedia("(pointer: fine)").matches) return;
+    var maxTilt = 16;
 
-    var radius = 70;
-    var maxPush = 16;
-
-    document.addEventListener("mousemove", function (e) {
-      var rect = wrap.getBoundingClientRect();
-      var cx = rect.left + rect.width / 2;
-      var cy = rect.top + rect.height / 2;
-      var dx = cx - e.clientX;
-      var dy = cy - e.clientY;
-      var dist = Math.sqrt(dx * dx + dy * dy);
-
-      if (dist < radius) {
-        var strength = (1 - dist / radius) * maxPush;
-        var angle = Math.atan2(dy, dx);
-        var pushX = Math.cos(angle) * strength;
-        var pushY = Math.sin(angle) * strength;
-        img.style.transform = "translate(" + pushX.toFixed(1) + "px, " + pushY.toFixed(1) + "px)";
-        wrap.classList.add("is-active");
-      } else {
-        img.style.transform = "";
-        wrap.classList.remove("is-active");
-      }
+    frame.addEventListener("mousemove", function (e) {
+      var rect = frame.getBoundingClientRect();
+      var px = (e.clientX - rect.left) / rect.width - 0.5;
+      var py = (e.clientY - rect.top) / rect.height - 0.5;
+      var rotateY = px * maxTilt * 2;
+      var rotateX = -py * maxTilt * 2;
+      frame.style.transform = "rotateX(" + rotateX.toFixed(2) + "deg) rotateY(" + rotateY.toFixed(2) + "deg)";
+    });
+    frame.addEventListener("mouseenter", function () {
+      frame.classList.add("is-hovering");
+    });
+    frame.addEventListener("mouseleave", function () {
+      frame.classList.remove("is-hovering");
+      frame.style.transform = "";
     });
   })();
 
@@ -285,10 +279,10 @@
     { name: "Claude", icon: "claude-icon.svg" },
     { name: "Vercel", icon: "vercel.svg", tint: "#ffffff", scale: 1.6 },
     { name: "Vite", icon: "vite.svg" },
-    { name: "Google Gemini", icon: "google-gemini.svg", scale: 1.6 },
-    { name: "Adobe XD", icon: "logos--adobe-xd.svg" },
     { name: "Laragon", icon: "Laragon.svg" },
     { name: "Xampp", icon: "Xampp.svg" },
+    { name: "Google Gemini", icon: "google-gemini.svg", scale: 1.6 },
+    { name: "Adobe XD", icon: "logos--adobe-xd.svg" },
     { name: "Visio", icon: "visio.svg", scale: 1.6 },
     { name: "OpenAI", icon: "openai-icon.svg", tint: "#ffffff" }
   ];
